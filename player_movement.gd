@@ -1,10 +1,14 @@
 extends CharacterBody2D
 class_name Player
 
+
+@export_group("Movimiento Básico")
 @export var SPEED = 300.0
 @export var ACCEL = 25
-@export var DashCooldown: Timer 
 
+@export_group("Dash")
+@export var DashCooldown: Timer 
+@export var DASH_SPEED =20
 var canDash: bool = true
 
 	
@@ -15,7 +19,7 @@ func get_input() -> Vector2:
 
 
 func dash() -> void:
-	velocity = velocity * 20
+	velocity = velocity * DASH_SPEED
 
 
 func _physics_process(delta: float) -> void:
