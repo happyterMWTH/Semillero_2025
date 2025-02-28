@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3t8qi28dtfmf"]
+
+[ext_resource type="Script" path="res://player_movement.gd" id="1_qxejr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01p6q"]
+
+[node name="Player" type="Node2D"]
+position = Vector2(-2, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("DashCooldown")]
+motion_mode = 1
+script = ExtResource("1_qxejr")
+DashCooldown = NodePath("Timer")
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(-10, -19, -10, 9, 10, 9, 10, -19)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(-9, -32, 0, -23, 10, -32, 0, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_01p6q")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
