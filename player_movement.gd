@@ -15,7 +15,7 @@ var canDash: bool = true
 func get_input() -> Vector2:
 	var x := Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	var y := Input.get_action_strength("Down") - Input.get_action_strength("Up")
-	return Vector2(x,y).normalized()
+	return Vector2(x,y)
 
 
 func dash() -> void:
@@ -27,11 +27,12 @@ func _physics_process(delta: float) -> void:
 	var playerInput := get_input()
 	
 	# Find which direction is bigger and lock it there
-	if abs(playerInput.x) > abs(playerInput.y):
+	if abs(playerInput.x) >= abs(playerInput.y):
 		playerInput.y = 0
 	else:
 		playerInput.x = 0
 
+	print(playerInput)
 	velocity = lerp(velocity, playerInput * SPEED, delta * ACCEL)
 	
 	if Input.is_action_just_pressed("Dash") and canDash:

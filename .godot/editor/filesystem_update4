@@ -1,4 +1,2 @@
-res://main.tscn
-res://README.md
-res://player_movement.gd
 res://player.tscn
+res://main.tscn
