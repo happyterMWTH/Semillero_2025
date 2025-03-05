@@ -1,9 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1741113363
+::res://::1741133052
+animated_sprite_2d.gd::GDScript::-1::1741114813::0::1::::<>AnimatedSprite2D<>::
 icon.svg::CompressedTexture2D::2939754264089434325::1740784165::1740784179::1::::<><>::
-main.tscn::PackedScene::7523584494195526381::1740789444::0::1::::<><>::uid://b3t8qi28dtfmf::::res://player.tscn
-player.tscn::PackedScene::4392964179749566553::1740789444::0::1::::<><>::res://player_movement.gd
-player_movement.gd::GDScript::-1::1740789287::0::1::::Player<>CharacterBody2D<>::
+main.tscn::PackedScene::7523584494195526381::1741117834::0::1::::<><>::uid://b3t8qi28dtfmf::::res://player.tscn
+player.tscn::PackedScene::4392964179749566553::1741117904::0::1::::<><>::res://player_movement.gd<>uid://y8eqltlqws1f::::res://assets/idle.png<>res://animated_sprite_2d.gd
+player_movement.gd::GDScript::-1::1741117829::0::1::::Player<>CharacterBody2D<>::
 README.md::TextFile::-1::1740784187::0::1::::<><>::
-::res://assets/::1741113347
+::res://assets/::1741113363
 idle.png::CompressedTexture2D::1752928761500486929::1732303466::1741113363::1::::<><>::

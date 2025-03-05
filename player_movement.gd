@@ -4,11 +4,11 @@ class_name Player
 
 @export_group("Movimiento Básico")
 @export var SPEED = 300.0
-@export var ACCEL = 25
+@export var ACCEL = 12
 
 @export_group("Dash")
 @export var DashCooldown: Timer 
-@export var DASH_SPEED =20
+@export var DASH_MULTIPLIER = 3
 @export var MAX_ENERGY = 100
 @export var ENERGY_PER_DASH = 10
 @export var energy: float = MAX_ENERGY
@@ -27,12 +27,11 @@ func get_input() -> Vector2:
 	return Vector2(x,y)
 
 
-func dash() -> void:
-	velocity = velocity * DASH_SPEED
+func dash(direction: Vector2) -> void:
+	velocity = DASH_MULTIPLIER * SPEED * direction
 
 
 func _physics_process(delta: float) -> void:
-	
 	var playerInput := get_input()
 	
 	# Find which direction is bigger and lock it there
@@ -44,11 +43,12 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = lerp(velocity, playerInput * SPEED, delta * ACCEL)
 	
+
 	if Input.is_action_just_pressed("Dash") and canDash and energy >= ENERGY_PER_DASH:
 		energy -= ENERGY_PER_DASH
 		canDash = false
 		DashCooldown.start()
-		dash()
+		dash(playerInput)
 
 	if energy < MAX_ENERGY:
 		energy += (log(energy) / log(1.5) + 1) * delta 

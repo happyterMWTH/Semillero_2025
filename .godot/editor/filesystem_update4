@@ -1,4 +1,3 @@
-res://player.tscn
-res://main.tscn
-res://animated_sprite_2d.gd
 res://player_movement.gd
+res://main.tscn
+res://player.tscn

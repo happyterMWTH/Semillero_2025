@@ -49,7 +49,6 @@ position = Vector2(-2, 0)
 motion_mode = 1
 script = ExtResource("1_qxejr")
 DashCooldown = NodePath("CooldownTimer")
-DASH_SPEED = 15
 ENERGY_PER_DASH = 30
 label = NodePath("RichTextLabel")
 
