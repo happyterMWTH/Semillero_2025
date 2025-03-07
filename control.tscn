@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://l6til4lks7v5"]
+
+[ext_resource type="Script" uid="uid://bs8bym51l52r5" path="res://button.gd" id="1_0fbet"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
+bg_color = Color(0.267232, 0.368149, 0.422462, 1)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+shadow_size = 7
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.025
+anchor_top = 4.737
+anchor_right = 12.025
+anchor_bottom = 4.737
+offset_left = -244.0
+offset_top = -107.48
+offset_right = 244.0
+offset_bottom = 107.52
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.58373, 0.746081, 0.46315, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_uchyk")
+text = "Start game"
+script = ExtResource("1_0fbet")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

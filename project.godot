@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="ARPG Test"
+<<<<<<< Updated upstream
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+=======
+run/main_scene="uid://l6til4lks7v5"
+config/features=PackedStringArray("4.4", "Forward Plus")
+>>>>>>> Stashed changes
 config/icon="res://icon.svg"
 
 [input]
