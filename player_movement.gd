@@ -5,11 +5,11 @@ class_name Player
 
 @export_group("Movimiento Básico")
 @export var SPEED = 300.0
-@export var ACCEL = 12
+@export var ACCEL = 12 
 
 @export_group("Dash")
 @export var DashCooldown: Timer 
-@export var DASH_MULTIPLIER = 3
+@export var DASH_MULTIPLIER = 4
 @export var MAX_ENERGY = 100
 @export var ENERGY_PER_DASH = 10
 @export var energy: float = MAX_ENERGY
@@ -71,8 +71,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 	print(area.name)
 	if area.name=="Hielo":
-		DASH_MULTIPLIER=6
+		DASH_MULTIPLIER=10
 		print("estoy tocando hielo")
 	if area.name=="pegajoso":
 		DASH_MULTIPLIER=2
 		print("estoy tocando pegajoso")
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	DASH_MULTIPLIER=4

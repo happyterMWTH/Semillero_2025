@@ -1,3 +1,4 @@
-res://player_movement.gd
+res://menu.tscn
 res://main.tscn
 res://player.tscn
+res://player_movement.gd
