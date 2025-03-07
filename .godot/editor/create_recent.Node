@@ -1,3 +1,6 @@
+Node
+CollisionShape2D
+Area2D
 RichTextLabel
 AnimatedSprite2D
 Sprite2D

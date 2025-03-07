@@ -1,11 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfgqlqbtcdm8d"]
+[gd_scene load_steps=4 format=3 uid="uid://dfgqlqbtcdm8d"]
 
 [ext_resource type="PackedScene" uid="uid://b3t8qi28dtfmf" path="res://player.tscn" id="1_0isvm"]
+[ext_resource type="Script" uid="uid://bfrcs2630bcfc" path="res://pegajoso.gd" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(580, 322)
 position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_0isvm")]
 position = Vector2(-10.2177, -6.68318)
+
+[node name="Hielo" type="Area2D" parent="."]
+position = Vector2(251, 488)
+scale = Vector2(24.64, 15.6)
+priority = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hielo"]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="pegajoso" type="Area2D" parent="."]
+position = Vector2(923, 130)
+scale = Vector2(23.24, 13.6)
+script = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pegajoso"]
+shape = SubResource("RectangleShape2D_ig7tw")
+debug_color = Color(0.235399, 0.631799, 0.244773, 0.42)

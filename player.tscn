@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3t8qi28dtfmf"]
+[gd_scene load_steps=11 format=3 uid="uid://b3t8qi28dtfmf"]
 
-[ext_resource type="Script" path="res://player_movement.gd" id="1_qxejr"]
+[ext_resource type="Script" uid="uid://mtu5j5eefi4i" path="res://player_movement.gd" id="1_qxejr"]
 [ext_resource type="Texture2D" uid="uid://y8eqltlqws1f" path="res://assets/idle.png" id="2_re0vl"]
-[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="3_tmt32"]
+[ext_resource type="Script" uid="uid://i12b0680esai" path="res://animated_sprite_2d.gd" id="3_tmt32"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01p6q"]
 
@@ -42,6 +42,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(24, 30)
+
 [node name="Player" type="Node2D"]
 position = Vector2(-2, 0)
 
@@ -75,4 +78,11 @@ offset_bottom = -20.0
 text = "a"
 fit_content = true
 
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_i3pqv")
+
 [connection signal="timeout" from="CharacterBody2D/CooldownTimer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]

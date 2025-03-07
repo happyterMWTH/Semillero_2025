@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name Player
+#@onready var detector=preload("res:Dectector.gd").new()
 
 
 @export_group("Movimiento Básico")
@@ -18,7 +19,7 @@ class_name Player
 @export var label: RichTextLabel
 var canDash: bool = true
 
-	
+
 
 
 func get_input() -> Vector2:
@@ -57,10 +58,21 @@ func _physics_process(delta: float) -> void:
 
 	label.text = str(int(energy))
 
-	print(energy)
+	#print(energy)
 	move_and_slide()
 
 
 func _on_timer_timeout() -> void:
 	if !canDash:
 		canDash = true
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+
+	print(area.name)
+	if area.name=="Hielo":
+		DASH_MULTIPLIER=6
+		print("estoy tocando hielo")
+	if area.name=="pegajoso":
+		DASH_MULTIPLIER=2
+		print("estoy tocando pegajoso")
