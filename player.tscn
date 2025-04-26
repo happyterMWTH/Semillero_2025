@@ -1,13 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3t8qi28dtfmf"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://player_movement.gd" id="1_qxejr"]
+=======
+[ext_resource type="Script" uid="uid://mtu5j5eefi4i" path="res://player_movement.gd" id="1_qxejr"]
+[ext_resource type="Texture2D" uid="uid://y8eqltlqws1f" path="res://assets/idle.png" id="2_re0vl"]
+[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="3_tmt32"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01p6q"]
 
 [node name="Player" type="Node2D"]
-position = Vector2(-2, 0)
 
+<<<<<<< Updated upstream
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("DashCooldown")]
+=======
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("DashCooldown", "label")]
+>>>>>>> Stashed changes
 motion_mode = 1
 script = ExtResource("1_qxejr")
 DashCooldown = NodePath("Timer")
@@ -18,11 +27,43 @@ polygon = PackedVector2Array(-10, -19, -10, 9, 10, 9, 10, -19)
 [node name="Polygon2D2" type="Polygon2D" parent="CharacterBody2D"]
 polygon = PackedVector2Array(-9, -32, 0, -23, 10, -32, 0, -42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_01p6q")
 
+<<<<<<< Updated upstream
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+=======
+[node name="CooldownTimer" type="Timer" parent="Player"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(1, -6)
+scale = Vector2(2.2, 2.2)
+sprite_frames = SubResource("SpriteFrames_cmprh")
+autoplay = "default"
+frame_progress = 0.374026
+script = ExtResource("3_tmt32")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player"]
+offset_left = -15.0
+offset_top = -40.0
+offset_right = 15.0
+offset_bottom = -20.0
+text = "a"
+fit_content = true
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[connection signal="timeout" from="Player/CooldownTimer" to="Player" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Player/Area2D" to="Player" method="_on_area_2d_area_exited"]
+>>>>>>> Stashed changes

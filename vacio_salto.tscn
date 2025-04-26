@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://duv8otk44iard"]
+
+[ext_resource type="PackedScene" uid="uid://cd3upsxlpurw6" path="res://node_2d.tscn" id="1_r4udg"]
+
+[node name="vacio_salto" type="Node2D"]
+
+[node name="Vacio" parent="." instance=ExtResource("1_r4udg")]
+tipo = "vacio"
+
+[node name="Entrada" parent="." instance=ExtResource("1_r4udg")]
+position = Vector2(92, 2)
+tipo = "entrada_vacio"
+
+[node name="Entrada2" parent="." instance=ExtResource("1_r4udg")]
+position = Vector2(-91, 0)
+tipo = "entrada_vacio"
+
+[editable path="Vacio"]

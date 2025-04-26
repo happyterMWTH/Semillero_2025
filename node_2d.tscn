@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd3upsxlpurw6"]
+
+[ext_resource type="Script" uid="uid://bl0erlvsvbm7k" path="res://area_2d.gd" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
+size = Vector2(95, 79)
+
+[node name="Vacio" type="Area2D"]
+position = Vector2(0, 4)
+script = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y32ns")
+debug_color = Color(7.52043e-09, 0.0155415, 0.0218568, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

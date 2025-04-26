@@ -1,0 +1,11 @@
+TileMapLayer
+CollisionShape2D
+Area2D
+Control
+CanvasLayer
+VBoxContainer
+ColorRect
+Node
+RichTextLabel
+AnimatedSprite2D
+Sprite2D
