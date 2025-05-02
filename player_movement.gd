@@ -14,12 +14,17 @@ class_name Player
 @export var ENERGY_PER_DASH = 10
 @export var energy: float = MAX_ENERGY
 
+@export_group("Animation")
+@export var tree: AnimationTree 
 
 @export_group("Test Stuff")
 @export var label: RichTextLabel
 var canDash: bool = true
+var state_machine: AnimationNodeStateMachinePlayback
 
-
+func _ready() -> void:
+	state_machine = tree["parameters/playback"]
+	
 
 
 func get_input() -> Vector2:
@@ -37,11 +42,22 @@ func _physics_process(delta: float) -> void:
 	
 	# Find which direction is bigger and lock it there
 	if abs(playerInput.x) >= abs(playerInput.y):
-		playerInput.y = 0
+		playerInput.y =0
+		
 	else:
 		playerInput.x = 0
-
 	
+	if playerInput.x != 0 or playerInput.y != 0:
+		
+		tree.set("parameters/conditions/walk", true)
+		tree.set("parameters/conditions/idle", false)
+	else:
+		tree.set("parameters/conditions/idle", true)
+		
+		tree.set("parameters/conditions/walk", false)
+		
+	
+	tree.set("parameters/Walk/Animaciones/blend_position", playerInput)
 	velocity = lerp(velocity, playerInput * SPEED, delta * ACCEL)
 	
 

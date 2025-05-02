@@ -9,6 +9,7 @@
 
 [node name="Camera2D2" type="Camera2D" parent="."]
 position = Vector2(580, 322)
+zoom = Vector2(1.335, 1.335)
 position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_0isvm")]

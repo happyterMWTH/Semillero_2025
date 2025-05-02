@@ -1,3 +1,6 @@
+AnimationTree
+AnimationPlayer
+Sprite2D
 Control
 CanvasLayer
 VBoxContainer
@@ -7,4 +10,3 @@ CollisionShape2D
 Area2D
 RichTextLabel
 AnimatedSprite2D
-Sprite2D
